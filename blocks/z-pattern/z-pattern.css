@@ -1,0 +1,102 @@
+
+.z-pattern {
+    padding: var(--spacing-xxl) 0;
+}
+
+.z-pattern > div {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.z-pattern > .z-pattern-heading {
+    text-align: center;
+    margin: 0 auto var(--spacing-l) auto;
+}
+
+.z-pattern h2 {
+    margin: 0;
+}
+
+.z-pattern > div[class^="z-row"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:  var(--spacing-m);
+    margin-bottom: var(--spacing-m);
+    flex-direction: column;
+}
+.z-pattern > div.z-row-even {
+    flex-direction: column-reverse;
+}
+
+.z-pattern > div[class^="z-row"] > div {
+    flex: 0 0 40%;
+}
+
+.z-pattern > div[class^="z-row"] > div {
+    max-width: 500px;
+}
+
+.z-pattern > div[class^="z-row"] > div:first-of-type {
+    margin-right: var(--spacing-m);
+}
+
+.z-pattern > div.z-row-odd > div:first-child {
+    order: 2;
+}
+
+.z-pattern .text .detail-S {
+  margin-bottom: 8px;
+}
+
+.z-pattern .text .detail-M,
+.z-pattern .text .detail-L {
+  margin-bottom: 16px;
+}
+
+.z-pattern .text .heading-XS,
+.z-pattern .text .heading-S {
+  margin-bottom: 8px;
+}
+
+.z-pattern .text .heading-M,
+.z-pattern .text .heading-L,
+.z-pattern .text .heading-XL {
+  margin-bottom: 16px;
+}
+
+.z-pattern .text .body-S {
+  margin-bottom: 16px;
+}
+
+.z-pattern .text .body-M {
+  margin-bottom: 24px;
+}
+
+.z-pattern .text img {
+  max-height: 56px;
+}
+
+.z-pattern .text .action-area {
+  display: flex;
+  margin: 0 0 24px 0;
+  gap: 24px;
+}
+
+.z-pattern .image img {
+  display: block;
+  width: 100%;
+}
+
+@media (min-width: 700px) {
+    main .section-wrapper.z-pattern-container > div {
+        max-width: var(--grid-desktop-container-width);
+    }
+    main .section-wrapper.z-pattern-container > div > :not(div) {
+        max-width: var(--grid-desktop-container-width);
+        margin: 0;
+    }
+    .z-pattern > div[class^="z-row"] {
+        flex-direction: row;
+    }
+}
