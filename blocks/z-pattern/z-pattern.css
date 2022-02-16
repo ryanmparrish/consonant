@@ -1,6 +1,14 @@
 
+:root {
+  --grid-container-width-s: 800px;
+  --grid-container-width-m: 1000px;
+  --grid-container-width-l: 1200px;
+}
+
 .z-pattern {
     padding: var(--spacing-xxl) 0;
+    max-width: var(--grid-container-width);
+    margin: 0 auto;
 }
 
 .z-pattern > div {
@@ -25,9 +33,7 @@
     margin-bottom: var(--spacing-m);
     flex-direction: column;
 }
-.z-pattern > div.z-row-even {
-    flex-direction: column-reverse;
-}
+
 
 .z-pattern > div[class^="z-row"] > div {
     flex: 0 0 40%;
@@ -41,9 +47,7 @@
     margin-right: var(--spacing-m);
 }
 
-.z-pattern > div.z-row-odd > div:first-child {
-    order: 2;
-}
+
 
 .z-pattern .text .detail-S {
   margin-bottom: 8px;
@@ -88,15 +92,23 @@
   width: 100%;
 }
 
-@media (min-width: 700px) {
-    main .section-wrapper.z-pattern-container > div {
-        max-width: var(--grid-desktop-container-width);
-    }
-    main .section-wrapper.z-pattern-container > div > :not(div) {
-        max-width: var(--grid-desktop-container-width);
-        margin: 0;
-    }
-    .z-pattern > div[class^="z-row"] {
-        flex-direction: row;
-    }
+@media screen and (min-width: 600px) {
+  .z-pattern > div.z-row-even {
+    flex-direction: column-reverse;
+  }
+  .z-pattern > div[class^="z-row"] {
+    flex-direction: row;
+  }
+  .z-pattern > div.z-row-odd > div:first-child {
+    order: 2;
+  }
+  .z-pattern {
+    max-width: var(--grid-container-width-s);
+  }
+  .z-pattern.medium {
+    max-width: var(--grid-container-width-m);
+  }
+  .z-pattern.large {
+    max-width: var(--grid-container-width-l);
+  }
 }
