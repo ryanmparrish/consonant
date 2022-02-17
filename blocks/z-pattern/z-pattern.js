@@ -40,7 +40,6 @@ function decorateText(el, size) {
       heading.previousElementSibling.classList.add('detail-M');
     }
   }
-
   if (size === 'm') {
     heading.classList.add('heading-M');
     heading.nextElementSibling.classList.add('body-S');
@@ -68,12 +67,12 @@ function getSize(el) {
 }
 
 export default function init(block)  {
-
-    const size = getSize(block);
-    const h2 = block.querySelector('h2');
-    if (h2) {
-        h2.parentElement.parentElement.classList.add('z-pattern-heading');
+    const h1 = block.querySelector('h1');
+    if (h1) {
+        h1.parentElement.parentElement.classList.add('z-pattern-heading');
+        h1.classList.add('heading-L');
     }
+    const size = getSize(block);
     const zRows = block.querySelectorAll(':scope > div:not([class])');
     zRows.forEach((row, idx) => {
         row.classList.add(isOdd(idx));

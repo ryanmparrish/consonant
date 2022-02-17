@@ -21,10 +21,6 @@
     margin: 0 auto var(--spacing-l) auto;
 }
 
-.z-pattern h2 {
-    margin: 0;
-}
-
 .z-pattern > div[class^="z-row"] {
     display: flex;
     align-items: center;
