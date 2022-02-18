@@ -30,6 +30,21 @@ function decorateButtons(el) {
   }
 }
 
+function decorateIcons(el) {
+  const regex = /[^{\{]+(?=}\})/g; // {{value}}
+  const placeholders = el.textContent.match(regex);
+  placeholders.forEach( (str) => {
+    // todo: get this placeholder data from docs
+    const svg = `<img width="40" alt="Adobe Illustrator CC icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Adobe_Illustrator_CC_icon.svg/512px-Adobe_Illustrator_CC_icon.svg.png">`;
+    const url = `#`;
+    el.innerHTML = el.innerHTML.replace(`{{${str}}}`, `<a class="body-S icon ${str}" href="${url}">${svg} ${str.split('-')[1]}</a>`);
+  });
+  const icons = el.querySelectorAll('.icon');
+  if (icons.length > 0) {
+    icons[0].closest('p').classList.add('product-area');
+  }
+}
+
 function decorateText(el, size) {
   const headings = el.querySelectorAll('h1, h2, h3, h4, h5, h6');
   const heading = headings[headings.length - 1];
@@ -56,7 +71,7 @@ function decorateText(el, size) {
   }
 }
 
-function getSize(el) {
+function getBlockSize(el) {
   if (el.classList.contains('medium')) {
     return 'm';
   }else if (el.classList.contains('large')) {
@@ -72,7 +87,7 @@ export default function init(block)  {
         h1.parentElement.parentElement.classList.add('z-pattern-heading');
         h1.classList.add('heading-L');
     }
-    const size = getSize(block);
+    const size = getBlockSize(block);
     const zRows = block.querySelectorAll(':scope > div:not([class])');
     zRows.forEach((row, idx) => {
         row.classList.add(isOdd(idx));
@@ -82,7 +97,8 @@ export default function init(block)  {
         if (image) {
           image.classList.add('image');
         }
-        decorateButtons(text);
         decorateText(text, size);
+        decorateIcons(text);
+        decorateButtons(text);
     });
 }
