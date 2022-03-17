@@ -1,5 +1,5 @@
 window.hlx.initSidekick({
-  project: 'Consonant',
+  project: 'demo',
   hlx3: true,
   plugins: [
     {
