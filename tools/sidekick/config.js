@@ -1,5 +1,6 @@
 window.hlx.initSidekick({
   project: 'demo',
+  host: 'https://main--demo--ryanmparrish.hlx3.page',
   hlx3: true,
   plugins: [
     {
