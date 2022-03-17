@@ -82,6 +82,23 @@ function getBlockSize(el) {
 }
 
 export default function init(block)  {
+    const children = block.querySelectorAll(':scope > div');
+    // const foreground = children[children.length - 1];
+    if (children.length > 1) {
+      const firstRow = children[0].querySelector(':scope > div');
+      if(firstRow && children.length == 2) {
+        console.log({firstRow}, children[0])
+        children[0].classList.add('background');
+        const bgImg = children[0].querySelector(':scope img');
+        if (!bgImg) {
+          children[0].style.display = 'none';
+          const bgColor = children[0].textContent;
+          block.style.background = bgColor;
+        }
+      }
+    }
+    // foreground.classList.add('foreground');
+
     const size = getBlockSize(block);
     const media = block.querySelectorAll(':scope > div:not([class])');
     media.forEach((row, idx) => {
@@ -92,6 +109,11 @@ export default function init(block)  {
         if (image) {
           image.classList.add('image');
         }
+        const rowLeftToRight = row.querySelector(':scope > div:first-of-type').classList.contains('text');
+        if (rowLeftToRight) {
+          row.classList.add(`media-row--ltr`);
+        }
+
         decorateText(text, size);
         decorateIcons(text);
         decorateButtons(text);

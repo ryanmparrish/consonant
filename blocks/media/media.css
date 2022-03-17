@@ -6,23 +6,44 @@
 }
 
 .media {
+    margin: 0 auto;
+}
+
+.media .background picture {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.media .background img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+/*.media > div {*/
+/*    max-width: 1200px;*/
+/*    margin: 0 auto;*/
+/*}*/
+
+.media > div[class^="media-row"] {
     padding: var(--spacing-m) 0;
     max-width: var(--grid-container-width);
     margin: 0 auto;
-}
 
-.media > div {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.media > div[class^="media-row"] {
     display: flex;
     align-items: center;
     justify-content: center;
     gap:  var(--spacing-m);
-    margin-bottom: var(--spacing-m);
+    /*margin-bottom: var(--spacing-m);*/
     flex-direction: column;
+}
+
+.media > div.media-row--ltr {
+    flex-direction: column-reverse;
 }
 
 .media > div[class^="media-row"] > div {
@@ -114,22 +135,19 @@
 
 @media screen and (min-width: 600px) {
 
-  .media > div.media-row-even {
-    flex-direction: column-reverse;
-  }
   .media > div[class^="media-row"] {
     flex-direction: row;
   }
   .media > div.media-row-odd > div:first-child {
     order: 2;
   }
-  .media {
+  .media > div[class^="media-row"] {
     max-width: var(--grid-container-width-s);
   }
-  .media.medium {
+  .media.medium  > div[class^="media-row"] {
     max-width: var(--grid-container-width-m);
   }
-  .media.large {
+  .media.large  > div[class^="media-row"] {
     max-width: var(--grid-container-width-l);
   }
 
