@@ -48,6 +48,16 @@
     /* Grid */
     --grid-container-width: 83.4%;
     --grid-column-width: 7.025%;
+
+    /* Color */
+
+    --color:213, 84%; /*the base color*/
+    --l: 49%; /*the initial lightness*/
+    --blue-hsla: 213, 84%, 49%, 1; /* adobe blue #1473e6 */
+
+    --color-primary: hsl(var(--color),var(--l));
+    --color-primary-darker: hsl(var(--color),calc(var(--l) - 10%));
+    --color-primary-lighter: hsl(var(--color),calc(var(--l) + 20%));
 }
 
 @media screen and (min-width: 1440px) {
@@ -133,16 +143,21 @@ body {
     font-style: normal;
 }
 
+
 .light .con-button {
     color: #000;
 }
 
 .con-button.blue {
     color: #FFF;
-    background: rgb(20, 115, 230);
-    border: 2px solid rgb(20, 115, 230);
+    background: var(--color-primary);
+    border: 2px solid var(--color-primary);
 }
-
+.con-button.blue:hover,
+.con-button.blue:active {
+  background: var(--color-primary-darker);
+  border: 2px solid var(--color-primary-darker);
+}
 .con-button.outline {
   color: #000;
   background: #fff;

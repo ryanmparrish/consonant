@@ -120,13 +120,18 @@
   align-items: center;
   padding-right: 16px;
   text-decoration: none;
-  color: rgb(20, 115, 230);
+  color: var(--color-primary);
   margin: 0;
+}
+.media .text .icon:hover {
+  text-decoration: underline;
 }
 .media .text .icon img{
   padding-right: 12px;
 }
-
+.media.dark .text .icon {
+  color: white;
+}
 .media .image img {
   display: block;
   width: 100%;
