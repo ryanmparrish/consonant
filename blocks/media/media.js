@@ -83,21 +83,18 @@ function getBlockSize(el) {
 
 export default function init(block)  {
     const children = block.querySelectorAll(':scope > div');
-    // const foreground = children[children.length - 1];
     if (children.length > 1) {
-      const firstRow = children[0].querySelector(':scope > div');
-      if(firstRow && children.length == 2) {
-        console.log({firstRow}, children[0])
+      console.log(children[0], children[0].childNodes.length);
+      if(children[0].childNodes.length == 1) {
         children[0].classList.add('background');
         const bgImg = children[0].querySelector(':scope img');
         if (!bgImg) {
-          children[0].style.display = 'none';
           const bgColor = children[0].textContent;
           block.style.background = bgColor;
+          children[0].remove();
         }
       }
     }
-    // foreground.classList.add('foreground');
 
     const size = getBlockSize(block);
     const media = block.querySelectorAll(':scope > div:not([class])');
@@ -118,4 +115,14 @@ export default function init(block)  {
         decorateIcons(text);
         decorateButtons(text);
     });
+
+    const multiple = block.classList.contains('multiple');
+    if(multiple) {
+      const mediaContainer = document.createElement('div');
+      mediaContainer.classList.add('media-container');
+      media.forEach(function (row, index) {
+        mediaContainer.append(row);
+      });
+      block.append(mediaContainer);
+    }
 }
