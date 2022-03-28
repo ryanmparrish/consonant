@@ -16,10 +16,13 @@
 
 :root {
     /* Typography */
+
+    --type-transform: uppercase;
     --type-detail-all-weight: 700;
     --type-detail-m-size: 12px;
     --type-detail-m-lh: 15px;
-    --type-detail-m-transform: uppercase;
+    --type-detail-l-size: 16px;
+    --type-detail-l-lh: 20px;
 
     --type-heading-all-weight: 700;
     --type-heading-xl-size: 36px;
@@ -39,8 +42,10 @@
     --type-body-s-lh: 24px;
 
     /* Spacing */
+    --spacing-xs: 8px;
     --spacing-s: 16px;
     --spacing-m: 24px;
+    --spacing-ml: 32px;
     --spacing-l: 48px;
     --spacing-xl: 56px;
     --spacing-xxl: 80px;
@@ -125,9 +130,18 @@ body {
     font-size: var(--type-detail-m-size);
     line-height: var(--type-detail-m-lh);
     font-weight: var(--type-detail-all-weight);
-    text-transform: var(--type-detail-m-transform);
+    text-transform: var(--type-transform);
     margin: 0;
 }
+
+.detail-L {
+  font-size: var(--type-detail-l-size);
+  line-height: var(--type-detail-l-lh);
+  font-weight: var(--type-detail-all-weight);
+  text-transform: var(--type-transform);
+  margin: 0;
+}
+
 
 /* Buttons */
 .con-button {

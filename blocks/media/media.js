@@ -96,9 +96,14 @@ export default function init(block)  {
       }
     }
 
+    const alternate = block.classList.contains('z-pattern');
     const size = getBlockSize(block);
     const media = block.querySelectorAll(':scope > div:not([class])');
     media.forEach((row, idx) => {
+
+        if(alternate){
+          row.classList.add(isOdd(idx));
+        }
         row.classList.add(`media-row`);
         const text = row.querySelector('h1, h2, h3, h4, h5, h6').closest('div');
         text.classList.add('text');
