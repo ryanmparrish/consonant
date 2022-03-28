@@ -43,7 +43,7 @@
 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: stretch;
     gap:  var(--spacing-ml);
     position: relative;
     flex-direction: column;
@@ -52,7 +52,7 @@
 .media.medium > div.media-row {
   gap: 40px;
 }
-.media.medium > div.media-row {
+.media.large > div.media-row {
   gap: 56px;
 }
 .media > div.media-row--ltr {
@@ -60,7 +60,7 @@
 }
 
 .media > div.media-row > div {
-    flex: 0 0 40%;
+    width: 100%;
 }
 
 /*.media > div.media-row > div:first-of-type {*/
@@ -112,7 +112,7 @@
   display: flex;
   flex-wrap: wrap;
   margin: 0 0 24px 0;
-  gap: var(--spacing-s);
+  gap: var(--spacing-xs) var(--spacing-s);
 }
 
 .media .text .icon {
@@ -120,10 +120,10 @@
   font-weight: 700;
   display: inline-flex;
   align-items: center;
-  padding-right: var(--spacing-s);
   text-decoration: none;
   color: var(--color-primary);
   margin: 0;
+  padding: 0;
 }
 
 .media .text .icon:hover {
@@ -151,6 +151,9 @@
   padding: var(--spacing-m) 0;
   position: relative;
 }
+.media.multiple.columns-2 .media-container {
+  max-width: var(--grid-container-width-m);
+}
 .media.multiple .media-container > div.media-row {
   width: 100%;
   display: block;
@@ -165,18 +168,18 @@
 
   .media > div.media-row {
     flex-direction: row;
-  }
-  .media > div.media-row-odd > div:first-child {
-    order: 2;
-  }
-  .media > div.media-row {
     max-width: var(--grid-container-width-s);
+    margin: 0 var(--spacing-m);
   }
   .media.medium  > div.media-row {
     max-width: var(--grid-container-width-m);
   }
   .media.large  > div.media-row {
     max-width: var(--grid-container-width-l);
+  }
+
+  .media > div.media-row-odd > div:first-child {
+    order: 2;
   }
 
   /* Media Multi */
@@ -238,7 +241,31 @@
   .media.multiple.columns-2.z-pattern .media-container .media-row > div,
   .media.multiple.columns-3.z-pattern .media-container .media-row > div,
   .media.multiple.columns-4.z-pattern .media-container .media-row > div {
-    flex: 0 0 40%;
+    flex: 0 0 50%;
   }
 
+}
+
+
+@media screen and (min-width: 800px) {
+  .media > div.media-row {
+    margin: 0 auto;
+  }
+  .media.medium > div.media-row,
+  .media.large > div.media-row {
+    margin: 0 var(--spacing-m);
+  }
+}
+@media screen and (min-width: 1000px) {
+  .media.medium > div.media-row {
+    margin: 0 auto;
+  }
+  .media.large > div.media-row {
+    margin: 0 var(--spacing-m);
+  }
+}
+@media screen and (min-width: 1200px) {
+  .media.large > div.media-row {
+    margin: 0 auto;
+  }
 }
