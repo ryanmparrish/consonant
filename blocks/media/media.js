@@ -84,7 +84,6 @@ function getBlockSize(el) {
 export default function init(block)  {
     const children = block.querySelectorAll(':scope > div');
     if (children.length > 1) {
-      console.log(children[0], children[0].childNodes.length);
       if(children[0].childNodes.length == 1) {
         children[0].classList.add('background');
         const bgImg = children[0].querySelector(':scope img');
